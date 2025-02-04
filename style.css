@@ -41,19 +41,53 @@ body{
     background-attachment: fixed;
 }
 
+.top>nav{
+    padding: 20px;
+}
+
 .hero{
     height: 100vh;
     padding: 50px;
 }
 
+.hero .heading h1{
+    text-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+}
+
 .conatiner{
-   padding: 10px 10px;
+    min-height: 100vh;
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 nav{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
+    min-height: 80px;
+    background-color: var(--dark-blue);
+}
+
+.nav-brand{
+    text-decoration: none;
+    color: var(--light-orange);
+    font-size: 2rem;
+
+}
+
+.tech{
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
 }
 
 nav ul li{
@@ -64,7 +98,7 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
     color: var(--light-orange);
-    font-size: 13px;
+    font-size: 15px;
     position: relative;
 }
 
@@ -82,6 +116,21 @@ nav ul li a::after{
 nav ul li a:hover::after{
     width: 100%;
     cursor: pointer;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3 ease-in-out;
+    transition: all 0.3 ease-in-out;
+    background-color: var(--light-orange);
 }
 
 .header-text{
@@ -303,3 +352,60 @@ h3{
     align-self: center;
 }
 
+
+@media screen and (max-width:768px){
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    ul{
+        position: fixed;
+        left: -150%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: var(--dark-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    ul.active{
+        left: 0;
+    }
+
+    nav ul li{
+        margin: 16px 0;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-text{
+        padding: 20px;
+    }
+
+    .designs{
+        flex-direction: column;
+    }
+
+    .images{
+        flex-direction: column;
+    }
+
+    
+}
